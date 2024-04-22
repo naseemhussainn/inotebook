@@ -28,6 +28,12 @@
   color: #61dafb;
 }
 
+i{
+  cursor: pointer;
+}
+.my-toast{
+  background-color: aqua;
+}
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
