@@ -12,8 +12,7 @@ const Notestate = (props) => {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",
-                "auth-token":
-                    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiNjYwYWRiMTA1NDJmYzI5YmMxNzlhZWIxIiwiaWF0IjoxNzExOTkzNjg5fQ.fCcSfkGZ2AF2KUcUu4i4ORMC5TFMpzzht6oTtzQhSMQ",
+                "auth-token": localStorage.getItem('Auth-Token'),
             },
         });
         var fetchnotes = await response.json();
@@ -27,8 +26,7 @@ const Notestate = (props) => {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
-                    "auth-token":
-                        "eyJhbGciOiJIUzI1NiIsInRd5cCI6IkpXVCJ9.eyJ1c2VyIjoiNjYwYWRiMTA1NDJmYzI5YmMxNzlhZWIxIiwiaWF0IjoxNzExOTkzNjg5fQ.fCcSfkGZ2AF2KUcUu4i4ORMC5TFMpzzht6oTtzQhSMQ",
+                    "auth-token":localStorage.getItem('Auth-Token'),
                 },
                 body: JSON.stringify({
                     title:title, description : description, tag :tag
@@ -67,8 +65,6 @@ const Notestate = (props) => {
 
     };
 
-
-
     const deleteNote = async(id) => {
         let url = `${urlStatic}notes/delete-notes/${id}`;
         console.log(url)
@@ -76,8 +72,7 @@ const Notestate = (props) => {
             method: "DELETE",
             headers: {
                 "Content-Type": "application/json",
-                "auth-token":
-                    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiNjYwYWRiMTA1NDJmYzI5YmMxNzlhZWIxIiwiaWF0IjoxNzExOTkzNjg5fQ.fCcSfkGZ2AF2KUcUu4i4ORMC5TFMpzzht6oTtzQhSMQ",
+                "auth-token":localStorage.getItem('Auth-Token'),
                 "Content-Type": "application/json"
             },
         });
@@ -102,8 +97,7 @@ const Notestate = (props) => {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",
-                "auth-token":
-                    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiNjYwYWRiMTA1NDJmYzI5YmMxNzlhZWIxIiwiaWF0IjoxNzExOTkzNjg5fQ.fCcSfkGZ2AF2KUcUu4i4ORMC5TFMpzzht6oTtzQhSMQ",
+                "auth-token":localStorage.getItem('Auth-Token'),
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
@@ -111,7 +105,6 @@ const Notestate = (props) => {
             }),
         });
         var dataResponse = await response;
-        console.log(dataResponse);
         if((dataResponse.status == 200)){
             var newnote = JSON.parse(JSON.stringify(notes))
             console.log('before');
